@@ -1,9 +1,17 @@
-a = IO.gets "Digite um número: " 
-b = IO.gets "Digite o segundo número: "
+defmodule Calculator do 
+  def sum() do
+    numa = get_input_integer("Digite um número: ")
+    numb = get_input_integer("Digite o segundo número: ")
 
-numa = a |> String.trim() |> String.to_integer()
-numb = b |> String.trim() |> String.to_integer()
+    result = numa + numb
 
-sum = numa + numb
+    IO.inspect "A soma dos números é #{result}"
+  end
 
-IO.inspect sum
+  def get_input_integer(text) do
+    IO.gets(text) |> String.trim() |> String.to_integer()
+  end
+end
+
+Calculator.sum()
+
