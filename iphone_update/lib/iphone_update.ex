@@ -4,15 +4,14 @@ defmodule IphoneUpdate do
   """
 
   @doc """
-  Hello world.
 
   ## Examples
 
-      iex> IphoneUpdate.hello()
-      :world
+      iex> IphoneUpdate.is_updated()
+      input: 11
+      {:ok, "Atualiza"}
 
   """
-  #not_updated = [8, "X"]
 
   def is_updated() do
     result = 
@@ -26,7 +25,7 @@ defmodule IphoneUpdate do
   defp is_version_valid({:num, version}) when version > 8, do: "Atualiza"
   defp is_version_valid(_), do: "Não atualiza"
 
-  defp handle_input(version_iphone) do
+  def handle_input(version_iphone) do
     case Integer.parse(version_iphone) do
       {version_integer, _} -> is_version_valid({:num, version_integer})
       _ -> is_version_valid(version_iphone)
